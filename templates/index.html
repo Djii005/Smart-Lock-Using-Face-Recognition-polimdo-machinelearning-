@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Raspberry Pi Face Recognition</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Raspberry Pi Face Recognition</h1>
+        
+        <div class="video-container">
+            <img src="{{ url_for('video_feed') }}" width="640" height="480">
+        </div>
+        
+        <div class="recognition-info" id="recognitionInfo">
+            Status: No face detected
+        </div>
+        
+        <div class="controls">
+            <div>
+                <button id="captureBtn">Capture Face Images</button>
+                <span id="captureCount"></span>
+            </div>
+            <button id="trainBtn">Train Recognition Model</button>
+        </div>
+        
+        <div class="status" id="statusMessage">
+            System ready. Add users by capturing face images.
+        </div>
+        
+        <div id="captureForm" style="display: none; margin-top: 20px;">
+            <input type="text" id="userName" placeholder="Enter user name">
+            <button id="startCaptureBtn">Start Capture</button>
+            <button id="cancelCaptureBtn">Cancel</button>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
